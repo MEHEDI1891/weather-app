@@ -1,3 +1,5 @@
+let currentUnit = "metric";
+
 async function getWeather() {
 
     const city = document.getElementById("city").value;
@@ -5,7 +7,7 @@ async function getWeather() {
     const apiKey = "ae9d12a1a22c0780198b93e15473b584";
 
     const url =
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${currentUnit}`;
 
     try {
 
@@ -25,13 +27,19 @@ async function getWeather() {
             return;
         }
 
+        let tempSymbol = "°C";
+
+        if(currentUnit == "imperial"){
+            tempSymbol = "°F";
+        }
+
         document.getElementById("weatherResult").innerHTML =
         `
         <div class="weather-card">
 
             <h1>${data.name}</h1>
 
-            <h2>${data.main.temp}°C</h2>
+            <h2>${data.main.temp}${tempSymbol}</h2>
 
             <h3>${data.weather[0].main}</h3>
 
@@ -39,7 +47,7 @@ async function getWeather() {
 
             <p>Humidity: ${data.main.humidity}%</p>
 
-            <p>Wind Speed: ${data.wind.speed} KM/H</p>
+            <p>Wind Speed: ${data.wind.speed}</p>
 
         </div>
         `;
@@ -60,5 +68,27 @@ async function getWeather() {
 function setCity(cityName){
 
     document.getElementById("city").value = cityName;
+
+    getWeather();
+}
+
+/* Celsius / Fahrenheit Switch */
+
+function toggleUnit(){
+
+    if(currentUnit == "metric"){
+
+        currentUnit = "imperial";
+
+        document.getElementById("unitBtn").innerHTML =
+        "Switch to °C";
+
+    } else {
+
+        currentUnit = "metric";
+
+        document.getElementById("unitBtn").innerHTML =
+        "Switch to °F";
+    }
 
     getWeather();
