@@ -1,24 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Weather App</h1>
+    <!-- Rain Animation -->
+    <div class="rain"></div>
 
-    <input type="text" id="city" placeholder="Enter city">
+    <!-- Main Container -->
+    <div class="container">
 
-    <button onclick="getWeather()">
-        Search
-    </button>
+        <!-- Search Section -->
+        <div class="search-box">
 
-    <div id="weatherResult"></div>
-</div>
+            <input type="text" id="city" placeholder="Search country...">
 
-<script src="script.js"></script>
+            <button onclick="getWeather()">
+                Search
+            </button>
+
+        </div>
+
+        <!-- Random Country List -->
+        <div class="country-list">
+
+            <h3>Popular Countries</h3>
+
+            <ul>
+                <li onclick="setCity('Bangladesh')">Bangladesh</li>
+                <li onclick="setCity('Japan')">Japan</li>
+                <li onclick="setCity('Canada')">Canada</li>
+                <li onclick="setCity('London')">London</li>
+                <li onclick="setCity('Dubai')">Dubai</li>
+            </ul>
+
+        </div>
+
+        <!-- Weather Result -->
+        <div id="weatherResult"></div>
+
+    </div>
+
+    <!-- Trees / Grass -->
+    <div class="grass"></div>
+
+    <script src="script.js"></script>
 
 </body>
-</html>
+
