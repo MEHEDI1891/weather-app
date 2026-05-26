@@ -7,15 +7,58 @@ async function getWeather() {
     const url =
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-    const response = await fetch(url);
+    try {
 
-    const data = await response.json();
+        const response = await fetch(url);
 
-    console.log(data);
+        const data = await response.json();
 
-    document.getElementById("weatherResult").innerHTML = `
-        <h2>${data.name}</h2>
-        <p>Temperature: ${data.main.temp}°C</p>
-        <p>Weather: ${data.weather[0].description}</p>
-    `;
+        console.log(data);
+
+        if (data.cod == "404") {
+
+            document.getElementById("weatherResult").innerHTML =
+            `
+            <h2>City Not Found</h2>
+            `;
+
+            return;
+        }
+
+        document.getElementById("weatherResult").innerHTML =
+        `
+        <div class="weather-card">
+
+            <h1>${data.name}</h1>
+
+            <h2>${data.main.temp}°C</h2>
+
+            <h3>${data.weather[0].main}</h3>
+
+            <p>${data.weather[0].description}</p>
+
+            <p>Humidity: ${data.main.humidity}%</p>
+
+            <p>Wind Speed: ${data.wind.speed} KM/H</p>
+
+        </div>
+        `;
+
+    } catch (error) {
+
+        console.log(error);
+
+        document.getElementById("weatherResult").innerHTML =
+        `
+        <h2>Something Went Wrong</h2>
+        `;
+    }
 }
+
+/* Country Quick Select */
+
+function setCity(cityName){
+
+    document.getElementById("city").value = cityName;
+
+    getWeather();
