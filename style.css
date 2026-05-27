@@ -1,4 +1,4 @@
-/* Base Reset & Fonts */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* Fullscreen Video Background */
+
 #bg-video {
     position: fixed;
     top: 0;
@@ -24,18 +24,18 @@ body {
     transition: opacity 1s ease-in-out;
 }
 
-/* Dark Overlay (30% visibility) */
+
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4); /* Slightly darker for better text readability */
+    background: rgba(0, 0, 0, 0.4); 
     z-index: -1;
 }
 
-/* Glassmorphism Utilities */
+
 .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(16px);
@@ -63,7 +63,7 @@ body {
     min-height: 100vh;
 }
 
-/* Left Column */
+
 .weather-section {
     padding: 2rem;
     display: flex;
@@ -83,7 +83,7 @@ header {
     letter-spacing: 1px;
 }
 
-/* Search Bar */
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -121,7 +121,7 @@ header {
     font-size: 1.2rem;
 }
 
-/* Suggested Cities */
+
 .suggested-cities {
     display: flex;
     gap: 1rem;
@@ -141,7 +141,7 @@ header {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Main Weather Display */
+
 .weather-main {
     flex-grow: 1;
     display: flex;
@@ -345,12 +345,11 @@ header {
     font-weight: 600;
 }
 
-/* Utilities */
+
 .hidden { display: none !important; }
 #loader, #error-msg { text-align: center; margin: 2rem 0; font-size: 1.2rem; }
 #error-msg { color: #ff6b6b; }
 
-/* Animations */
 .fade-in { animation: fadeIn 0.8s ease forwards; }
 
 @keyframes fadeIn {
@@ -358,7 +357,7 @@ header {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
     .app-container {
         grid-template-columns: 1fr;
