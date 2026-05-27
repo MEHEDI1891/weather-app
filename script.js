@@ -125,7 +125,8 @@ function updateForecastUI(list) {
 
 async function fetchNews() {
     try {
-const res = await fetch(`https://gnews.io/api/v4/search?q=weather%20OR%20climate&lang=en&max=5&apikey=${3cd9e80c850b047f1dfd28b6d233b9fa});
+// Replace line 128 with this:
+const res = await fetch(`https://gnews.io/api/v4/search?q=weather%20OR%20climate&lang=en&max=5&apikey=3cd9e80c850b047f1dfd28b6d233b9fa`);
         const data = await res.json();
         
         if (data.articles) {
